@@ -153,32 +153,37 @@ function App()
 
     return (
         <div className="App"> 
-            <AppBar position="static">
+            <AppBar position="static" sx={{ backgroundColor: '#070F2B' }}>
                 <Toolbar>
                     <Typography variant="h5">Ostoslista</Typography>
                 </Toolbar>
             </AppBar>
-            <div className="container">
+            <div className="container" >
                 <div className="ag-theme-material">
-                    <div style={{ maxHeight: gridMaxHeight }}>
-                        <AgGridReact rowData={items} domLayout={domLayout} localeText={localeText}>
+                    <div style={{ maxHeight: gridMaxHeight, backgroundColor: '#535C91', color: 'antiquewhite' }}>
+                        <AgGridReact 
+                            rowData={items} 
+                            domLayout={domLayout} 
+                            localeText={localeText}
+                            style={{ backgroundColor: '#535C91' }}
+                        >
                             <AgGridColumn
                                 field='isChecked' 
                                 flex={1}
+                                cellStyle={{ backgroundColor: '#535C91', color: 'antiquewhite', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
                                 cellRenderer={(params) => (
-                                    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                                     <IconButton onClick={() => markItem(params.value, params.data.id)} size="small" color="success">
                                         {params.value ? <CheckBox /> : <CheckBoxOutlined />}
                                     </IconButton>
-                                    </div>
                                 )}
                             />
                             <AgGridColumn
                                 field='description'
                                 cellClassRules={{ 'strikethrough': (params) => params.data.isChecked }}
                                 flex={4}
+                                cellStyle={{ backgroundColor: '#535C91', color: 'antiquewhite', display: 'flex', alignItems: 'left', justifyContent: 'left' }}
                                 cellRenderer={(params) => (
-                                    <div style={{ display: 'flex', alignItems: 'left', justifyContent: 'left' }}>
+                                    <>
                                         {editingItemId === params.data.id ? (
                                             <Input
                                                 defaultValue={params.value}
@@ -193,26 +198,33 @@ function App()
                                                         updateItem(params.data.id, event.target.value);
                                                     }
                                                 }}
+                                                sx={{ color: 'antiquewhite' }}
                                             />
                                         ) : (
                                             <div style={{ flex: 1, marginRight: '24px' }} onClick={() => setEditingItemId(params.data.id)}>
-                                            {params.value}
+                                                {params.value}
                                             </div>
                                         )}
-                                    </div>
+                                    </>
                                 )}
                             />
                             <AgGridColumn
                                 field='id'
                                 flex={2}
+                                cellStyle={{ backgroundColor: '#535C91', color: 'antiquewhite', display: 'flex', alignItems: 'left' }}
                                 cellRenderer={(params) => (
                                     <div style={{ display: 'flex', alignItems: 'left' }}>
-                                    <IconButton onClick={() => setEditingItemId(params.data.id)} size="small" color="primary">
-                                        <Edit />
-                                    </IconButton>
-                                    <IconButton onClick={() => deleteItem(params.data.id)} size="small" color="error">
-                                        <Delete />
-                                    </IconButton>
+                                        <IconButton onClick={() => setEditingItemId(params.data.id)} size="small" color="primary">
+                                            <Edit />
+                                        </IconButton>
+                                        <IconButton 
+                                            onClick={() => deleteItem(params.data.id)} 
+                                            size="small" 
+                                            sx={{ bgcolor: '#535C91' }}
+                                            color="error"
+                                        >
+                                            <Delete />
+                                        </IconButton>
                                     </div>
                                 )}
                             />
@@ -226,6 +238,7 @@ function App()
                         onChange={inputChanged}
                         onSubmit={() => addItem(inputData)}
                         onKeyDown={handleKeyDown}
+                        sx={{ color: 'antiquewhite' }}
                     />
                     <div className='refresh-button'>
                         <RefreshButton onClick={() => { fetchItems(); cancelEditing(); }} />
