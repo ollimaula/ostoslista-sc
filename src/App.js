@@ -201,7 +201,7 @@ function App()
                                                 sx={{ color: 'antiquewhite' }}
                                             />
                                         ) : (
-                                            <div style={{ flex: 1, marginRight: '24px' }} onClick={() => setEditingItemId(params.data.id)}>
+                                            <div style={{ flex: 1, marginRight: '0', overflow: 'hidden', whiteSpace: 'nowrap', textOverflow: 'ellipsis' }} onClick={() => setEditingItemId(params.data.id)}>
                                                 {params.value}
                                             </div>
                                         )}
