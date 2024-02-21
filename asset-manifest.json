@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/ostoslista-sc/static/css/main.d09169aa.css",
-    "main.js": "/ostoslista-sc/static/js/main.ca79b7c7.js",
+    "main.js": "/ostoslista-sc/static/js/main.de75e4f2.js",
     "static/js/453.c268965b.chunk.js": "/ostoslista-sc/static/js/453.c268965b.chunk.js",
     "index.html": "/ostoslista-sc/index.html",
     "main.d09169aa.css.map": "/ostoslista-sc/static/css/main.d09169aa.css.map",
-    "main.ca79b7c7.js.map": "/ostoslista-sc/static/js/main.ca79b7c7.js.map",
+    "main.de75e4f2.js.map": "/ostoslista-sc/static/js/main.de75e4f2.js.map",
     "453.c268965b.chunk.js.map": "/ostoslista-sc/static/js/453.c268965b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d09169aa.css",
-    "static/js/main.ca79b7c7.js"
+    "static/js/main.de75e4f2.js"
   ]
 }
